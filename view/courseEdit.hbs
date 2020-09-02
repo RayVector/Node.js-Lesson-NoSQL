@@ -1,0 +1,36 @@
+<h1>Edit course {{course.title}}</h1>
+
+<form action="/courses/edit" method="post" class="course-form">
+  <input type="hidden" name="_csrf" value="{{csrf}}">
+
+  <div class="input-field">
+    <input type="text" name="title" class="validate" id="course_name" required value="{{course.title}}">
+    <label for="course_name">Course name</label>
+    <span class="helper-text" data-error="Enter the name"></span>
+  </div>
+
+  <div class="input-field">
+    <input type="number" name="price" class="validate" id="course_price" required value="{{course.price}}" min="1">
+    <label for="course_price">Course price</label>
+    <span class="helper-text" data-error="Enter the price"></span>
+  </div>
+
+  <div class="input-field">
+    <input type="text" name="img" class="validate" id="course_logo" required value="{{course.img}}">
+    <label for="course_logo">Url logo</label>
+    <span class="helper-text" data-error="Enter the url"></span>
+  </div>
+
+  <input type="hidden" name="id" value="{{course._id}}">
+
+
+  <button class="btn btn-primary" type="submit">Accept</button>
+
+</form>
+
+<form action="/courses/remove" method="post">
+  <input type="hidden" name="_csrf" value="{{csrf}}">
+
+  <input type="hidden" name="id" value="{{course._id}}">
+  <button type="submit" class="btn red">Remove</button>
+</form>
